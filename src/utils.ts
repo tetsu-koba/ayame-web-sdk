@@ -93,7 +93,7 @@ export function removeCodec(sdp: string, codec: VideoCodecOption): string {
     const codecre = new RegExp(`(a=rtpmap:(\\d*) ${codec}/90000\\r\\n)`)
     const rtpmaps = tmpSdp.match(codecre)
     if (rtpmaps == null || rtpmaps.length <= 2) {
-      return sdp
+      return tmpSdp
     }
     const rtpmap = rtpmaps[2]
     let modsdp = tmpSdp.replace(codecre, '')
